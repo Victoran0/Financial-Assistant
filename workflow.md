@@ -12,7 +12,7 @@ Authentication is required to access agent, else simply provide a simple llm wit
 Authenticated user
 
 1. get the user's prompt
-2. CATEGORIZE_INITIAL_PROMPT (categories: PURCHASE_REQUEST, FINANCIAL_ASSISTANT (greeting, finance, other questions etc), TRANSACTION_HISTORY, PLATFORM_NAVIGATION (issues navigating the platform/finding a specific section in the app), CUSTOMER_SUPPORT_REQUIRED). return the category
+2. CATEGORIZE_INITIAL_PROMPT (categories: PURCHASE_REQUEST, CHAT_ASSISTANT (greeting, finance, other questions etc), TRANSACTION_HISTORY, PLATFORM_NAVIGATION (issues navigating the platform/finding a specific section in the app), CUSTOMER_SUPPORT_REQUIRED). return the category
 
 3. use the CATEGORIZE_INITIAL_PROMPT RESPONSE + the initial prompt to process the request
 
@@ -32,9 +32,9 @@ Authenticated user
            - if the pin/password is wrong, return false and send message that the password/pin is incorrect, else return true and process the purchase for the user. Once done, append the transaction to their transaction history, save to vector db and let agent send a response that the transaction is done successfully. END
            - if they do not provide the details or they close the popup, END
 
-   - FINANCIAL_ASSISTANT:
+   - CHAT_ASSISTANT:
 
-     - GET_FINANCIAL_ASSISTANT_RESPONSE: A good Prompt of how llm should reply and restrictions (the chat must be finance related, Asides greetings and general topics): financial, savings and investment related.
+     - CHAT_ASSISTANT_RESPONSE: A good Prompt of how llm should reply and restrictions (the chat must be finance related, Asides greetings and general topics): financial, savings and investment related.
      - run CATEGORIZE_INITIAL_PROMPT on every new message
 
    - TRANSACTION_HISTORY:
@@ -54,7 +54,7 @@ Authenticated user
 
 1. CATEGORIZE_INITIAL_PROMPT
 2. PURCHASE_REQUEST
-3. FINANCIAL_ASSISTANT
+3. CHAT_ASSISTANT
 4. TRANSACTION_HISTORY
 5. CUSTOMER_SUPPORT_REQUIRED
 6. PLATFORM_NAVIGATION
@@ -67,5 +67,5 @@ Authenticated user
 12. GET_PURCHASE_DATA
 13. VALIDATE_TRANSACTION_PIN
 
-14. GET_FINANCIAL_ASSISTANT_RESPONSE
+14. CHAT_ASSISTANT_RESPONSE
 15. END
