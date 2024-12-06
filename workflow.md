@@ -12,7 +12,7 @@ Authentication is required to access agent, else simply provide a simple llm wit
 Authenticated user
 
 1. get the user's prompt
-2. CATEGORIZE_INITIAL_PROMPT categorize it (categories: PURCHASE_REQUEST, FINANCIAL_ASSISTANT (greeting, finance, other questions etc), FINANCIAL_ASSISTANT, PLATFORM_NAVIGATION (issues navigating the platform/finding a specific section in the app), CUSTOMER_SUPPORT_REQUIRED). return the category
+2. CATEGORIZE_INITIAL_PROMPT (categories: PURCHASE_REQUEST, FINANCIAL_ASSISTANT (greeting, finance, other questions etc), TRANSACTION_HISTORY, PLATFORM_NAVIGATION (issues navigating the platform/finding a specific section in the app), CUSTOMER_SUPPORT_REQUIRED). return the category
 
 3. use the CATEGORIZE_INITIAL_PROMPT RESPONSE + the initial prompt to process the request
 
